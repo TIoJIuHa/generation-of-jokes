@@ -18,7 +18,7 @@
 Выглядит неплохо..?
 
 Вторая нейронка дообучена на той же модели от сбербанка.
-Вот [её jupiter notebook](Вставить сюда загруженный файл юпитера нейронки нон-хуморс)<sup>1</sup>.
+Вот [её jupiter notebook](https://github.com/TIoJIuHa/generation-of-jokes/blob/main/joke_training_model.ipynb)<sup>1</sup>.
 
 Она генерирует результаты похуже
 
