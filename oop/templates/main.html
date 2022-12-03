@@ -32,7 +32,7 @@
             <div class="main__text">
                 <!-- форма -->
                 <a href="#" class="header__logo"></a>
-                <form action="{{url_for('main')}}" method="POST">
+                <form action="{{ url_for('main') }}" method="POST">
                     <fieldset class="fieldset">
                         <legend class="main__title"> Введите начало шутки </legend>
                         <input class="form_joke" name = "get_joke" type="text" required value="- ">
@@ -51,11 +51,11 @@
                 <!-- <img class="main__img" src="style/5ea9446391ad4f29c7596820603d1c39.jpg" alt="Gallery"> -->
 
                 <!-- форма -->
-                <div class="result" align="center">
-                    {%if result %}
+                <div class="result" align="left">
+                    {% if result %}
                     <br>
                     <p class="text_position_class"> </p>
-                    <p class="text_position_class">{{result}} </p>
+                    <p class="text_position_class">{{ result|safe }}</p>
                     {% endif %}
                 </div>
                  <!-- форма -->
