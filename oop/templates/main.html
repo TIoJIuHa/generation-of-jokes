@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+    <title>Генерация шуток</title>
+</head>
+<body> 
+	<header class="header">
+		<div class="form">
+			<nav class="header__nav">
+				<ul class="header__list">
+					<li class="header__item"><a class="header__link" href="#">Вход</a></li>
+					<li class="header__item"><a class="header__link"href="#">Регистрация</a></li>
+				</ul>
+			</nav>
+	</header>
+
+    
+<div class="container">
+
+
+    <section>
+		
+        <div class="main">
+            <div class="main__text">
+                <!-- форма -->
+                <a href="#" class="header__logo"></a>
+                <form action="{{url_for('main')}}" method="POST">
+                    <fieldset class="fieldset">
+                        <legend class="main__title"> Введите начало шутки </legend>
+                        <input class="form_joke" name = "get_joke" type="text" required value="- ">
+                        <br>
+                        <br>
+                        <input class="btn" type="submit" value="Генерация">
+                    </fieldset>
+                </form>
+                  <!-- форма -->
+            </div>
+
+
+
+
+            <div class="main__image">
+                <!-- <img class="main__img" src="style/5ea9446391ad4f29c7596820603d1c39.jpg" alt="Gallery"> -->
+
+                <!-- форма -->
+                <div class="result" align="center">
+                    {%if result %}
+                    <br>
+                    <p class="text_position_class"> </p>
+                    <p class="text_position_class">{{result}} </p>
+                    {% endif %}
+                </div>
+                 <!-- форма -->
+            </div>
+        </div>
+
+    </section>
+</div>
+<script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script>
+</body>
+</html>
