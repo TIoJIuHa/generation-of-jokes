@@ -30,6 +30,7 @@ form {
     height: 330px;
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 55px;
 }
 
 .header {
@@ -45,13 +46,19 @@ form {
     }
 .header__logo{
     display: block;
-    width: 200px;
-    height: 150px;
+    width: 310px;
+    height: 260px;
     background-image: url(eddypaintings-billy-beer-aesthetic.gif);
-    background-size: 200px 150px;
+    background-size: 310px 260px;
     background-repeat: no-repeat;
     margin-left: auto;
     margin-right: auto;
+    /*    display: block;
+    width: 310px;
+    height: 260px;
+    background-image: url(eddypaintings-billy-beer-aesthetic.gif);
+    background-size: 310px 260px;*/
+    padding-bottom: 25px;
     }
 
     .header__list{
@@ -100,11 +107,13 @@ form {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
+    padding-top: 40px;
 }
 
 .main__text{
     flex-basis: 490px;
+    margin-bottom: 90px;
+    display: block;
 }
 
 .main__title{

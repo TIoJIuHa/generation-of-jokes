@@ -34,7 +34,7 @@
                 <a href="#" class="header__logo"></a>
                 <form action="{{ url_for('main') }}" method="POST">
                     <fieldset class="fieldset">
-                        <legend class="main__title"> Введите начало шутки </legend>
+                        <legend class="main__title"> Введите начало шутки-диалога </legend>
                         <input class="form_joke" name = "get_joke" type="text" required value="- ">
                         <br>
                         <br>
@@ -43,8 +43,6 @@
                 </form>
                   <!-- форма -->
             </div>
-
-
 
 
             <div class="main__image">
@@ -69,5 +67,18 @@
         window.history.replaceState( null, null, window.location.href );
     }
 </script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js "> </script>
+  <script>
+  $(function() {
+  function change () {
+  
+       this.value.indexOf(this.defaultValue) && (this.value = this.defaultValue);
+  
+  }
+  $(".form_joke").on("input", change);
+  });
+  
+    </script>
 </body>
 </html>
