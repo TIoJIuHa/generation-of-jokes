@@ -1,6 +1,6 @@
 import flask
 import torch
-from flask import redirect, render_template, url_for
+from flask import render_template
 from transformers import GPT2LMHeadModel, GPT2Tokenizer
 
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -27,18 +27,14 @@ def generate_joke(start_joke: str) -> str:
     extra_list = []
     final_joke = ""
 
-    for line in range(0, len(generated_text)-3):
-        if ((generated_text[line] == "[") and (generated_text[line + 1] == "S") and
-           (generated_text[line + 2] == "J") and (generated_text[line + 3] == "]")):
+    for i in range(0, len(generated_text) - 3):
+        if ((generated_text[i] == "[") and (generated_text[i + 1] == "E") and (generated_text[i + 2] == "J") and (generated_text[i + 3] == "]")):
             break
-
-        if (generated_text[line] == "\n") and (generated_text[line + 1] == "-"):
-            final_joke += "".join(extra_list) + "<br>"
-            extra_list.clear()
-        extra_list.append(generated_text[line])
-
+        if generated_text[i] == "-":
+            extra_list.append("<br>")
+        extra_list.append(generated_text[i])
     final_joke += "".join(extra_list)
-    return final_joke[:-6]
+    return final_joke
 
 
 app = flask.Flask(__name__, template_folder="templates")
