@@ -1,13 +1,13 @@
-import flask
+import flask 
+from flask import render_template, redirect, url_for
 import torch
-from flask import render_template
 from transformers import GPT2LMHeadModel, GPT2Tokenizer
+import os
 
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-model = GPT2LMHeadModel.from_pretrained(r"saved_model").to(DEVICE)
+model = GPT2LMHeadModel.from_pretrained(r'saved_model').to(DEVICE)
 
-tokenizer = GPT2Tokenizer.from_pretrained(r"saved_model")
-
+tokenizer = GPT2Tokenizer.from_pretrained(r'saved_model')
 
 def generate_joke(start_joke: str) -> str:
     text = start_joke
@@ -37,22 +37,24 @@ def generate_joke(start_joke: str) -> str:
     return final_joke
 
 
-app = flask.Flask(__name__, template_folder="templates")
+app = flask.Flask(__name__, template_folder= 'templates')
 
+@app.route('/', methods = ['POST', 'GET'])
 
-@app.route("/", methods=["POST", "GET"])
+@app.route('/index', methods = ['POST', 'GET'])
 
-
-@app.route("/index", methods=["POST", "GET"])
 def main():
-    if flask.request.method == "GET":
-        return render_template("main.html")
-
-    if flask.request.method == "POST":
-        start_joke = str(flask.request.form["get_joke"])
+    if flask.request.method == 'GET':
+        return render_template('main.html')
+    
+    if flask.request.method == 'POST':
+        start_joke = str(flask.request.form['get_joke'])
         result_joke = generate_joke(start_joke)
-        return render_template("main.html", result=result_joke)
+        return render_template('main.html', result = result_joke)
+
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5000))
+    app.run(debug=True, host='0.0.0.0', port=port)   
 
 
-if __name__ == "__main__":
-    app.run(debug=True)
+
