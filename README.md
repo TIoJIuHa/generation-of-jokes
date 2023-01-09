@@ -19,16 +19,16 @@
 
 ### Составление датасета
 За основу был взят [датасет с Hugging Face](https://huggingface.co/datasets/artemsnegirev/dialogs_from_jokes). Но количество шуток было уменьшено, чтобы избежать ошибки *памяти cuda*.
-Итоговый датасет с шутками находится в файле `jokes_dataset.txt` в папке [model_train](https://github.com/TIoJIuHa/generation-of-jokes/tree/develop-site/oop/model_train)
+Итоговый датасет с шутками находится в файле `jokes_dataset.txt` в папке [model_train](./oop/model_train)
 
 ### Дообучение модели
 В рамках проекта нужно было дообучить модель, основанную на [русскоязычной GPT-3](https://github.com/ai-forever/ru-gpts), которая может генерировать связанный текст на основе заданного отрывка. Дообучали *"sberbank-ai/rugpt3medium_based_on_gpt2"*, так как это оказалось оптимальным вариантом, чтобы обучение прошло без ошибок и качество генерируемого текста не сильно упало.
-Процесс дообучения модели находится в файле `train_medium_model.ipynb` в папке [model_train](https://github.com/TIoJIuHa/generation-of-jokes/tree/develop-site/oop/model_train)
+Процесс дообучения модели находится в файле `train_medium_model.ipynb` в папке [model_train](./oop/model_train)
 
 ### Разработка сайта
 
 Для разработки сайта был выбран веб-фреймворк Flask, мы посчитали этот вариант самым оптимальным для нашего небольшого проекта.
-Все файлы хранятся в папке [oop](https://github.com/TIoJIuHa/generation-of-jokes/tree/develop-site/oop). Основной файл с кодом - `model_web_app.py`
+Все файлы хранятся в папке [oop](./oop). Основной файл с кодом - `model_web_app.py`
 
 ### Написание докера
 
@@ -41,7 +41,17 @@
 ### Результат:
 
 Вот так выглядит наш сайт:
-*скрин сайта *
+![](./oop/work_results/site.jpg)
+Давайте сгенерируем первую шутку.
+Введем строку "Что делает студент во время сессии?" в поле ввода
+![](./oop/work_results/first_joke_str.jpg)
+Нажимаем кнопку "Генерация"
+![](./oop/work_results/first_joke_gen.jpg)
+Ждём немного и получаем шутку(даже немного смешную)
+![](./oop/work_results/first_joke.jpg)
 
-Вот пример нескольких анекдотов, сгенерированных на нашем сайте:
-*скрины сгенерированных анекдотов *
+Вот для примера ещё несколько анекдотов, сгенерированных на нашем сайте:
+![](./oop/work_results/second_joke_gen.jpg)
+![](./oop/work_results/second_joke.jpg)
+![](./oop/work_results/third_joke_gen.jpg)
+![](./oop/work_results/third_joke.jpg)
