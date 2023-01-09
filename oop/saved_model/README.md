@@ -1,0 +1,1 @@
+Бинарник с дообученной моделью можно скачать с ГуглДиска: https://drive.google.com/drive/folders/1KFamk4cCb23ZmqMEmFyvhX0Fa1e4FH8n?usp=sharing
